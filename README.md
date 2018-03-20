@@ -5,7 +5,7 @@ COMP 383: Computational Biology
 - Fahed al Rafati
 - Mary B. Makarious
 - Ariane Quenum
-- Anthony Volcek
+- Anthony Volchek ....
 ##### [Link to Google Drive](https://drive.google.com/drive/folders/1McYLmD6kR-d7lGICvDZfpASVYIHUPB_9?usp=sharing)
 
 ### Background
