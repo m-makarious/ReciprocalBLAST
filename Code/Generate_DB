@@ -52,8 +52,9 @@ list_dbs = list_databases(outputFolder)
 '''
 
 for i in list_fastas:
-  blastn = "blastn -query " + i + " -db " + "/Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db" + " -out " + outputResults + "/" + tail[:-6]+".txt"
-
+	head, tail = os.path.split(i)
+	blastn = "blastn -query " + i + " -db " + "/Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db" + " -out " + outputResults + "/" + tail[:-6]+".txt"
+	os.system(blastn)
 #blastn -query /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl/EcoliK12.fasta -db /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db -out /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/Test/EcoliK12.txt -outfmt 5
 
 
