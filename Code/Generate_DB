@@ -55,6 +55,11 @@ for i in list_fastas:
 	head, tail = os.path.split(i)
 	blastn = "blastn -query " + i + " -db " + "/Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db" + " -out " + outputResults + "/" + tail[:-6]+".txt"
 	os.system(blastn)
+
+# Need to split the database_type to the first letter and run "blast"+letter+" -query"
+# Need to save the .txt as fasta name vs db name 
+# Need to loop through dbs 
+
 #blastn -query /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl/EcoliK12.fasta -db /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db -out /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/Test/EcoliK12.txt -outfmt 5
 
 
