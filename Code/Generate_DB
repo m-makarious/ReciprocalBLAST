@@ -1,0 +1,67 @@
+# Reading in all the FASTAs
+# Import necessary packages 
+import sys
+import os
+
+# Inputs from the user (from a terminal window they can drag and drop to the folders)
+inputFolder = input("Enter the path for the folder that have all the .fasta files: ")
+database_type = input("Enter the database type (nucl or prot): ")
+outputFolder = input("Enter the output folder: ")
+outputResults = input("Where would you like the .txt results?: ")
+
+# Go through the folders and subfolders
+def list_files(dir):                                                                                                 
+   r = []                                                                                                            
+   subdirs = [x[0] for x in os.walk(dir)]                                                                            
+   for subdir in subdirs:                                                                                            
+       files = os.walk(subdir).__next__()[2]                                                                            
+       if (len(files) > 0):                                                                                          
+           for file in files:                                                                                        
+               r.append(subdir + "/" + file)                                                                        
+   return r
+
+# Run the list_files function 
+list_fastas = list_files(inputFolder)
+
+# Example commands:
+# Input folder: /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl
+# Output folder: /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db
+
+for i in list_fastas:
+    head, tail = os.path.split(i)
+    # If example input file is EcoliK12.fasta, then output should be /whatever/desired/path/EcoliK12_db
+    command = "makeblastdb -in " + i + " -dbtype " + database_type + " -out " + outputFolder + "/"+tail[:-6]+"_db"
+    os.system(command)
+    # print(command)
+
+
+# Up until here ---
+
+'''
+def list_databases(dir):
+   s = []                                                                                                            
+   subdirs = [x[0] for x in os.walk(dir)]                                                                            
+   for subdir in subdirs:                                                                                            
+       files = os.walk(subdir).__next__()[2]                                                                            
+       if (len(files) > 0):                                                                                          
+           for file in files:                                                                                        
+               s.append(subdir + "/" + file)                                                                        
+   return s
+
+list_dbs = list_databases(outputFolder)
+'''
+
+for i in list_fastas:
+  blastn = "blastn -query " + i + " -db " + "/Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db" + " -out " + outputResults + "/" + tail[:-6]+".txt"
+
+#blastn -query /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl/EcoliK12.fasta -db /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db -out /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/Test/EcoliK12.txt -outfmt 5
+
+
+
+
+
+
+
+
+
+
