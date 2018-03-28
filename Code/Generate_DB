@@ -1,4 +1,5 @@
 # Reading in all the FASTAs
+
 # Import necessary packages 
 import sys
 import os
@@ -7,7 +8,7 @@ import os
 inputFolder = input("Enter the path for the folder that have all the .fasta files: ")
 database_type = input("Enter the database type (nucl or prot): ")
 outputFolder = input("Enter the output folder: ")
-outputResults = input("Where would you like the .txt results?: ")
+outputResults = input("Where would you like the .txt BLAST results?: ")
 
 # Go through the folders and subfolders
 def list_files(dir):                                                                                                 
@@ -20,13 +21,14 @@ def list_files(dir):
                r.append(subdir + "/" + file)                                                                        
    return r
 
-# Run the list_files function 
+# Run the list_files function and return as list_fastas
 list_fastas = list_files(inputFolder)
 
 # Example commands:
 # Input folder: /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl
 # Output folder: /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db
 
+# Loop through the list of fastas and generate the databases depending on user inputs
 for i in list_fastas:
     head, tail = os.path.split(i)
     # If example input file is EcoliK12.fasta, then output should be /whatever/desired/path/EcoliK12_db
@@ -34,10 +36,7 @@ for i in list_fastas:
     os.system(command)
     # print(command)
 
-
-# Up until here ---
-
-'''
+# Go through folders and subfolders for all databases 
 def list_databases(dir):
    s = []                                                                                                            
    subdirs = [x[0] for x in os.walk(dir)]                                                                            
@@ -48,23 +47,28 @@ def list_databases(dir):
                s.append(subdir + "/" + file)                                                                        
    return s
 
+# Run the list_databases function and return as list_dbs
 list_dbs = list_databases(outputFolder)
-'''
 
+# This takes the database_type raw input and reduces it to "n" or "p" to run the BLAST depending on if the FASTAs and dbs are nucl or prot
+blast_variable = database_type[0]
+
+# Loop through the input FASTAs and all existing databases one by one and generate a .txt file that saves the output
+# .txt files will be saved as FASTA_vs_DatabaseName.txt
 for i in list_fastas:
-	head, tail = os.path.split(i)
-	blastn = "blastn -query " + i + " -db " + "/Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db" + " -out " + outputResults + "/" + tail[:-6]+".txt"
-	os.system(blastn)
+  head, tail = os.path.split(i)
+  for j in list_dbs:
+    head2, tail2 = os.path.split(j) 
+    blast1 = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + tail[:-6]+ "_vs_" + tail2[:-4] + ".txt"
+    os.system(blast1)
+    # print(blast1)
 
-# Need to split the database_type to the first letter and run "blast"+letter+" -query"
-# Need to save the .txt as fasta name vs db name 
-# Need to loop through dbs 
-
-#blastn -query /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl/EcoliK12.fasta -db /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db/EcoliK12_db -out /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/Test/EcoliK12.txt -outfmt 5
-
-
-
-
+# MM Notes: 
+# Need to split the database_type to the first letter and run "blast"+letter+" -query" : Done
+# Need to save the .txt as fasta name vs db name : Done
+# Need to loop through dbs : Done 
+# Check to see if FASTA name = DB name and do NOT run that loop (additional step) : Next step
+# Check why there is an extraneous .DS file being made for some odd reason??? (additional step)
 
 
 
