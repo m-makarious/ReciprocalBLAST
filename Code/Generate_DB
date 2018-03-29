@@ -5,10 +5,10 @@ import sys
 import os
 
 # Inputs from the user (from a terminal window they can drag and drop to the folders)
-inputFolder = input("Enter the path for the folder that have all the .fasta files: ")
-database_type = input("Enter the database type (nucl or prot): ")
-outputFolder = input("Enter the output folder: ")
-outputResults = input("Where would you like the .txt BLAST results?: ")
+inputFolder = input("Enter the path for the folder that have all the .fasta files: ").rstrip()
+database_type = input("Enter the database type (nucl or prot): ").rstrip()
+outputFolder = input("Enter the output folder: ").rstrip()
+outputResults = input("Where would you like the .txt BLAST results?: ").rstrip()
 
 # Go through the folders and subfolders
 def list_files(dir):                                                                                                 
