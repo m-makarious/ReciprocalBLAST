@@ -56,12 +56,13 @@ blast_variable = database_type[0]
 # Loop through the input FASTAs and all existing databases one by one and generate a .txt file that saves the output
 # .txt files will be saved as FASTA_vs_DatabaseName.txt
 for i in list_fastas:
-  head, tail = os.path.split(i)
+  FASTA_head, FASTA_tail = os.path.split(i)
   for j in list_dbs:
-    head2, tail2 = os.path.split(j) 
-    blast1 = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + tail[:-6]+ "_vs_" + tail2[:-4] + ".txt"
-    os.system(blast1)
-    # print(blast1)
+    db_head, db_tail = os.path.split(j)
+    if FASTA_tail[:-6] != db_tail[:-7]:
+      blast_results = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
+      os.system(blast_results)
+
 
 # MM Notes: 
 # Need to split the database_type to the first letter and run "blast"+letter+" -query" : Done
