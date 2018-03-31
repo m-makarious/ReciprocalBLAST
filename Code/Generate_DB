@@ -5,10 +5,38 @@ import sys
 import os
 
 # Inputs from the user (from a terminal window they can drag and drop to the folders)
+
 inputFolder = input("Enter the path for the folder that have all the .fasta files: ").rstrip()
 database_type = input("Enter the database type (nucl or prot): ").rstrip()
 outputFolder = input("Enter the output folder: ").rstrip()
-outputResults = input("Where would you like the .txt BLAST results?: ").rstrip()
+outputResults = input("Where would you like the .csv BLAST results?: ").rstrip()
+
+# Progress Bars
+# These progress bars (kinda) work
+
+# To track the progress of each DB made per fasta so the user can follow along
+def progress_Generating_DB(fasta):
+  sys.stdout.flush()
+  out = "A database has been generated from %s" % fasta
+  backspace = '\b' * 1000           
+
+  print (backspace)
+  sys.stdout.write(out)
+  sys.stderr = os.devnull # Errors that don't break the code will be supressed from showing in the console
+  sys.stdout.flush() # This "flushes" the terminal screen so all the output from os.system isn't clogging up the screen
+
+
+# To track the progress of each FASTA being BLAST-ed to a DB so the user can follow along
+def progress_BLAST(fasta, database):
+  sys.stdout.flush()
+
+  out = fasta + " has been BLAST-ed against " + database
+  backspace = '\b' * 1000            
+  
+  print (backspace)
+  sys.stderr = os.devnull
+  sys.stdout.write(out)
+
 
 # Go through the folders and subfolders
 def list_files(dir):                                                                                                 
@@ -33,6 +61,9 @@ for i in list_fastas:
     head, tail = os.path.split(i)
     # If example input file is EcoliK12.fasta, then output should be /whatever/desired/path/EcoliK12_db
     command = "makeblastdb -in " + i + " -dbtype " + database_type + " -out " + outputFolder + "/"+tail[:-6]+"_db"
+    progress_Generating_DB(tail)
+    sys.stdout.flush()
+    sys.stderr = os.devnull
     os.system(command)
     # print(command)
 
@@ -60,19 +91,26 @@ for i in list_fastas:
   for j in list_dbs:
     db_head, db_tail = os.path.split(j)
     if FASTA_tail[:-6] != db_tail[:-7]:
-      blast_results = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
+      blast_results = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -evalue 0.1" + " -outfmt 10" + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".csv"
+      #blast_results =  "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
+      progress_BLAST(FASTA_tail[:-6], db_tail[:-4])
+      sys.stdout.flush()
+      sys.stderr = os.devnull
       os.system(blast_results)
 
+    # print(blast_results)
 
 # MM Notes: 
 # Need to split the database_type to the first letter and run "blast"+letter+" -query" : Done
 # Need to save the .txt as fasta name vs db name : Done
 # Need to loop through dbs : Done 
-# Check to see if FASTA name = DB name and do NOT run that loop (additional step) : Next step
-# Check why there is an extraneous .DS file being made for some odd reason??? (additional step)
-
-
-
+# Check to see if FASTA name = DB name and do NOT run that loop (additional step) : Done
+# ^^ This will be some sort of if statement
+# Need to clean-up FASTA files before they are made into databases (remove commas and spaces)(Use BioPython?)
+# Output the files as .csv files (not .txt) : Done
+# Output the files with an e-value of 0.1 : Done 
+# Test out Compare_BLAST_Test.py
+# Rewrite if it works!
 
 
 
