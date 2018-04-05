@@ -5,8 +5,17 @@ COMP 383: Computational Biology
 - Fahed al Rafati
 - Mary B. Makarious
 - Ariane Quenum
-- Anthony Volchek ....
+- Anthony Volchek 
 ##### [Link to Google Drive](https://drive.google.com/drive/folders/1McYLmD6kR-d7lGICvDZfpASVYIHUPB_9?usp=sharing)
+
+### Table of Contents
+* [Overview](#overview)
+* [Getting Started](#gettingstarted)
+* [Hardware Requirements](#hardware)
+* [Software Requirements](#software)
+* [Input](#input)
+* [Usage](#usage)
+* [Output](#output)
 
 ### Background
 - Automated tool to identify homologs (orthologs and paralogs) between genomes
@@ -15,20 +24,24 @@ COMP 383: Computational Biology
 
 ---
 
-### Getting Started
+### Overview <a id="overview"></a>
+We are building a tool to identify homologs between multiple microbial genomes; identify the global similarities and differences that exist within an assortment of bacteria. In order to do that, we are taking some genes of interest and blasting them to a local database of the gene sequence from the organism of interest. The highest scoring gene is taken and blasted to a database of the gene sequence.
+___
+
+### Getting Started <a id="gettingstarted"></a>
 You will need to make a local database for your FASTA files. Using Local Blast+ from NCBI, the following command can be run from your terminal
 ```makeblastdb -in /path/to/FASTA/file/name.fasta -dbtype "TYPE" -out /path/where/you/want/the/database/files/name_of_Database```
 
 For nucleotides (a FASTA file that includes nucleotides), type in ```-dbtype nucl```
 For proteins (a FASTA file that includes amino acids), type in ```-dbtype prot```
+___
 
-
-### HARDWARE REQUIREMENT
+### Hardware Requirement <a id="hardware"></a>
 This program can work on any Windows or Mac machine with average RAM and processing capabilities. 
+___
 
-### SOFTWARE REQUIREMENT
-In order for the program to run you must have BLAST+, Python 3.1 .
-
+### Software Requirement <a id="software"></a>
+In order for the program to run you must have BLAST+, Python 3.1.
 
 BLAST+
 
@@ -38,15 +51,13 @@ Before you begin you must have BLAST Command Line Applications (BLAST+) download
 Python 3.1 
 This code was created and tested using Python3.1. DISCLAIMER: The program has not been tested or used on other versions of Python. User may run into some syntactical issues using other versions of Python. The Python website has detailed information on the Python programming language. Python 3.1 installation instructions can be found here. Python was installed using the [Anaconda] (https://docs.continuum.io/anaconda/install) free distribution.
 
+___
 
-### OVERVIEW
-We are building a tool to identify homologs between multiple microbial genomes; identify the global similarities and differences that exist within an assortment of bacteria. In order to do that, we are taking some genes of interest and blasting them to a local database of the gene sequence from the organism of interest. The highest scoring gene is taken and blasted to a database of the gene sequence.
-
-
-### INPUT FILE
+### Input File <a id="input"></a>
 This program only accepts .fasta files. Fasta files often start with a header line that may contain comments or other information. The rest of the file contains sequence data. Each sequence starts with a “>” symbol followed by the name of the sequence. The rest of the line describes the sequence and the remaining lines contain the sequences itself.
+___
 
-### USAGE
+### Usage <a id="usage"></a>
 To run the program, you will need to create a folder that contains all the .fasta files that you need. Once you have the folder, open a terminal window and try to run the python script.
 The program will then prompt the user: 
 
@@ -59,8 +70,9 @@ The program will then prompt the user:
 “Where would you like the .csv BLAST results?:” You can also drag the folder of the results to the terminal
 
 Once the database is created, the program will begin to blast each .fasta file against the database.
+___
 
-### OUTPUT FILE 
+### Output File <a id="output"></a>
 The program will now go through each of those .fasta files and generate a local database for each of them. Three files are created with the following extensions .nhr, .nin, .nsq. Each file is necessary for the program to run therefore, they should not be removed. 
 
 
