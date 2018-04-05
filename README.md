@@ -27,7 +27,7 @@ For proteins (a FASTA file that includes amino acids), type in ```-dbtype prot``
 This program can work on any Windows or Mac machine with average RAM and processing capabilities. 
 
 ### SOFTWARE REQUIREMENT
-In order for the program to run you must have BLAST+, Python 3.1 or above, and Bio Python.
+In order for the program to run you must have BLAST+, Python 3.1 .
 
 
 BLAST+
