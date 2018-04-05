@@ -64,9 +64,8 @@ Once the database is created, the program will begin to blast each .fasta file a
 The program will now go through each of those .fasta files and generate a local database for each of them. Three files are created with the following extensions .nhr, .nin, .nsq. Each file is necessary for the program to run therefore, they should not be removed. 
 
 
-| Week | Mary |
+| File | Description|
 |:----:|:--:|
-|### File | Description |
 | .nhr    |  This is the header file  |
 | .nin	 | This is the index file |
 | .nsq	 |This is the sequence file|
