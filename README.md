@@ -68,7 +68,7 @@ The program will now go through each of those .fasta files and generate a local 
 |:----:|:--:|
 | .nhr    |  This is the header file  |
 | .nin	 | This is the index file |
-| .nsq	 |This is the sequence file|
+| .nsq	 | This is the sequence file|
           
 
 BLAST is then performed based on the designation of ‘nucl’ and ‘prot’. Each individual FASTA is BLASTed against each individual Database as required in reciprocal BLAST. After looping through the FASTA files and databases, a ‘comma’ Delimited output will be produced for the purpose of parsing. This will be in “.txt” format. Comma delimited aids parsing as it’s a simpler output as well as for future output in “.csv”.
