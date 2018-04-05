@@ -61,13 +61,21 @@ ___
 To run the program, you will need to create a folder that contains all the .fasta files that you need. Once you have the folder, open a terminal window and try to run the python script.
 The program will then prompt the user: 
 
-“Enter the path for the folder that have all the .fasta files:” To enter the path, you can simply drag the folder to the terminal
+>“Enter the path for the folder that have all the .fasta files:” 
 
-“Enter the database type (nucl or prot): “If your database type is nucleotide type “nucl” and if your database type is protein type “prot”
+To enter the path, you can simply drag the folder to the terminal
 
-“Enter the output folder:” You can simply drag the output folder to the terminal
+>“Enter the database type (nucl or prot): “
 
-“Where would you like the .csv BLAST results?:” You can also drag the folder of the results to the terminal
+If your database type is nucleotide type “nucl” and if your database type is protein type “prot”
+
+>“Enter the output folder:” 
+
+You can simply drag the output folder to the terminal
+
+>“Where would you like the .csv BLAST results?:” 
+
+You can also drag the folder of the results to the terminal
 
 Once the database is created, the program will begin to blast each .fasta file against the database.
 ___
