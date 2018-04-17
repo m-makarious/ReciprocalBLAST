@@ -52,7 +52,8 @@ This code was created and tested using Python3.1. DISCLAIMER: The program has no
 
 
 Biopython
-Bio python can be installed following the following link (http://biopython.org/wiki/Documentation)
+
+Biopython can be installed following the following link (http://biopython.org/wiki/Documentation)
 ___
 
 ### Input File <a id="input"></a>
