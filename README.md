@@ -1,13 +1,16 @@
-# ReciprocalBLAST
-COMP 383: Computational Biology
+# **ReciprocalBLAST**
 
 ### Collaborators:
-- Fahed al Rafati
-- Mary B. Makarious
-- Ariane Quenum
-- Anthony Volchek 
-##### [Link to Google Drive](https://drive.google.com/drive/folders/1McYLmD6kR-d7lGICvDZfpASVYIHUPB_9?usp=sharing)
 
+##### Created by: Fahed al Rafati, Mary B. Makarious, Ariane Quenum, Anthony Volchek
+##### Loyola Univerisity Chicago: Department of Biology and Computer Science
+##### COMP 383: Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
+##### [Link to Google Drive](https://drive.google.com/drive/folders/1McYLmD6kR-d7lGICvDZfpASVYIHUPB_9?usp=sharing)
+##### [Link to Github](https://github.com/m-makarious/ReciprocalBLAST)
+#
+![LUC](http://www.luc.edu/media/home/images/loyola-logo-tag.png)
+
+---
 ## Table of Contents
 * [Overview](#overview)
 * [Getting Started](#gettingstarted)
