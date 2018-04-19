@@ -1,7 +1,7 @@
 # ReciprocalBLAST
 COMP 383: Computational Biology
 
-### Collaborators
+### Collaborators:
 - Fahed al Rafati
 - Mary B. Makarious
 - Ariane Quenum
@@ -22,6 +22,10 @@ COMP 383: Computational Biology
 - Keeps homolog lists for each genome and output a FASTA file for each cluster of homologs
 - Makes a local BLAST database for each genome and then BLAST everything against each other
 
+![alt text](https://i.imgur.com/qQCafdD.png)
+
+Reciprocal BLAST is an extension of BLAST aimed at finding orthologous sequences between two species and also a common computational method used to predict orthologues. Reciprocal BLAST is done by taking a gene and BLAST-ing it to a database of the gene sequences from the organism of interest. The gene with the highest score is BLASTed against a database of the query gene sequences. If the BLAST returns the original gene used as the best hit, the genes are considered candidate orthologs; however, only experimental evidence can prove  orthology.
+
 ---
 
 ## Overview <a id="overview"></a>
@@ -41,18 +45,18 @@ This program can work on any Windows or Mac machine with average RAM and process
 ___
 
 ## Software Requirement <a id="software"></a>
-In order for the program to run you must have BLAST+, Python 3.1.
+In order for the program to run you must have BLAST+, Python 3.1, and Biopython installed on your device.
 
 ### BLAST+
 Before you begin you must have BLAST Command Line Applications (BLAST+) downloaded on your computer. Proper installation instructions can be found here. (https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download) to be installed and on your local PATH. NCBI BLAST+ tools can be found at: BLAST+: architecture and applications. C. Camancho et al. BMC Bioinformatics 2009, 10:421.DOI:http://dx.doi.org/10.1186/1471-2105-10-421
 
 
 ### Python 3.1 
-This code was created and tested using Python3.1. DISCLAIMER: The program has not been tested or used on other versions of Python. User may run into some syntactical issues using other versions of Python. The Python website has detailed information on the Python programming language. Python 3.1 installation instructions can be found here. Python was installed using the [Anaconda] (https://docs.continuum.io/anaconda/install) free distribution.
+This code was created and tested using Python 3.1. **DISCLAIMER**: The program has not been tested or used on other versions of Python. User may run into some syntactical issues using other versions of Python. The Python website has detailed information on the Python programming language. Python 3.1 installation instructions can be found here. Python was installed using the [Anaconda] (https://docs.continuum.io/anaconda/install) free distribution.
 
 
 ### Biopython
-Biopython can be installed following the following link (http://biopython.org/wiki/Documentation)
+Biopython is required in order to parse through the FASTA files. Biopython can be installed following the following link (http://biopython.org/wiki/Documentation).
 ___
 
 ## Input File <a id="input"></a>
