@@ -44,13 +44,16 @@ ___
 In order for the program to run you must have BLAST+, Python 3.1.
 
 BLAST+
-
 Before you begin you must have BLAST Command Line Applications (BLAST+) downloaded on your computer. Proper installation instructions can be found here. (https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download) to be installed and on your local PATH. NCBI BLAST+ tools can be found at: BLAST+: architecture and applications. C. Camancho et al. BMC Bioinformatics 2009, 10:421.DOI:http://dx.doi.org/10.1186/1471-2105-10-421
 
 
 Python 3.1 
 This code was created and tested using Python3.1. DISCLAIMER: The program has not been tested or used on other versions of Python. User may run into some syntactical issues using other versions of Python. The Python website has detailed information on the Python programming language. Python 3.1 installation instructions can be found here. Python was installed using the [Anaconda] (https://docs.continuum.io/anaconda/install) free distribution.
 
+
+Biopython
+
+Biopython can be installed following the following link (http://biopython.org/wiki/Documentation)
 ___
 
 ### Input File <a id="input"></a>
