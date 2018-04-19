@@ -91,7 +91,7 @@ for i in list_fastas:
   for j in list_dbs:
     db_head, db_tail = os.path.split(j)
     if FASTA_tail[:-6] != db_tail[:-7]:
-      blast_results = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -evalue 0.1" + " -outfmt 10" + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".csv"
+      blast_results = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -evalue 0.1" + " -outfmt 10" + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
       #blast_results =  "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
       progress_BLAST(FASTA_tail[:-6], db_tail[:-4])
       sys.stdout.flush()
