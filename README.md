@@ -65,8 +65,8 @@ This program only accepts .fasta files. Fasta files often start with a header li
 ___
 
 ## Usage <a id="usage"></a>
-To run the program, you will need to create a folder that contains all the .fasta files that you need. Once you have the folder, open a terminal window and try to run the python script.
-The program will then prompt the user: 
+To run the program, you will need to create a folder that contains all the .fasta files that you need. Sample FASTA files can be accessed at https://github.com/m-makarious/ReciprocalBLAST/tree/master/sample%20files. Once you have the folder, open a terminal window and try to run the python script.
+The program will then prompt the user:
 
 >“Enter the path for the folder that have all the .fasta files:” 
 
