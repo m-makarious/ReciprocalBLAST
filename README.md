@@ -1,7 +1,5 @@
 # **ReciprocalBLAST**
-
-### Collaborators:
-
+---
 ##### Created by: Fahed al Rafati, Mary B. Makarious, Ariane Quenum, Anthony Volchek
 ##### Loyola Univerisity Chicago: Department of Biology and Computer Science
 ##### COMP 383: Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
@@ -100,4 +98,4 @@ The program will now go through each of those .fasta files and generate a local 
 | .nsq	 | This is the sequence file|
           
 
-BLAST is then performed based on the designation of ‘nucl’ and ‘prot’. Each individual FASTA is BLASTed against each individual Database as required in reciprocal BLAST. After looping through the FASTA files and databases, a ‘comma’ Delimited output will be produced for the purpose of parsing. This will be in “.txt” format. Comma delimited aids parsing as it’s a simpler output as well as for future output in “.csv”.
+BLAST is then performed based on the designation of ‘nucl’ and ‘prot’. Each individual FASTA is BLAST-ed against each individual Database as required in reciprocal BLAST. After looping through the FASTA files and databases, a ‘comma’ Delimited output will be produced for the purpose of parsing. This will be in “.txt” format. Comma delimited aids parsing as it is a simpler output as well as for future output in “.csv”.
