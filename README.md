@@ -1,9 +1,11 @@
 # **ReciprocalBLAST**
 ---
-##### Created by: Fahed al Rafati, Mary B. Makarious, Ariane Quenum, Anthony Volchek
+##### Created by:
+Fahed al Rafati, Mary B. Makarious, Ariane Quenum, Anthony Volchek
 ##### Loyola Univerisity Chicago: Department of Biology and Computer Science
-##### COMP 383: Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
-##### [Link to Google Drive](https://drive.google.com/drive/folders/1McYLmD6kR-d7lGICvDZfpASVYIHUPB_9?usp=sharing)
+##### COMP 383: Final Project
+Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
+
 ##### [Link to Github](https://github.com/m-makarious/ReciprocalBLAST)
 #
 ![LUC](http://www.luc.edu/media/home/images/loyola-logo-tag.png)
@@ -34,19 +36,22 @@ We are building a tool to identify homologs between multiple microbial genomes; 
 ___
 
 ## Getting Started <a id="gettingstarted"></a>
-You will need to make a local database for your FASTA files. Using Local Blast+ from NCBI, the following command can be run from your terminal
-```makeblastdb -in /path/to/FASTA/file/name.fasta -dbtype "TYPE" -out /path/where/you/want/the/database/files/name_of_Database```
+You will need to download the `reciblast` folder found on this GitHub to get started!
 
-For nucleotides (a FASTA file that includes nucleotides), type in ```-dbtype nucl```
-For proteins (a FASTA file that includes amino acids), type in ```-dbtype prot```
+Everything to run the program is in the folder.
+
+To use, you will need to
+`cd path/to/the/reciblast/folder`
+and run the program by typing
+`python py_blast.py`
 ___
 
-## Hardware Requirement <a id="hardware"></a>
+## Hardware Requirements <a id="hardware"></a>
 This program can work on any Windows or Mac machine with average RAM and processing capabilities. 
 ___
 
-## Software Requirement <a id="software"></a>
-In order for the program to run you must have BLAST+, Python 3.1, and Biopython installed on your device.
+## Software Requirements <a id="software"></a>
+In order for the program to run you must have BLAST+ and Python 3.1 need to be installed on your device.
 
 ### BLAST+
 Before you begin you must have BLAST Command Line Applications (BLAST+) downloaded on your computer. Proper installation instructions can be found here. (https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download) to be installed and on your local PATH. NCBI BLAST+ tools can be found at: BLAST+: architecture and applications. C. Camancho et al. BMC Bioinformatics 2009, 10:421.DOI:http://dx.doi.org/10.1186/1471-2105-10-421
@@ -55,47 +60,30 @@ Before you begin you must have BLAST Command Line Applications (BLAST+) download
 ### Python 3.1 
 This code was created and tested using Python 3.1. **DISCLAIMER**: The program has not been tested or used on other versions of Python. User may run into some syntactical issues using other versions of Python. The Python website has detailed information on the Python programming language. Python 3.1 installation instructions can be found here. Python was installed using the [Anaconda] (https://docs.continuum.io/anaconda/install) free distribution.
 
-
-### Biopython
-Biopython is required in order to parse through the FASTA files. Biopython can be installed following the following link (http://biopython.org/wiki/Documentation).
 ___
 
-## Input File <a id="input"></a>
-This program only accepts .fasta files. Fasta files often start with a header line that may contain comments or other information. The rest of the file contains sequence data. Each sequence starts with a “>” symbol followed by the name of the sequence. The rest of the line describes the sequence and the remaining lines contain the sequences itself.
+## Input Files <a id="input"></a>
+This program only accepts .fasta files. FASTA files often start with a header line that may contain comments or other information. The rest of the file contains sequence data. Each sequence starts with a “>” symbol followed by the name of the sequence. The rest of the line describes the sequence and the remaining lines contain the sequences itself.
 ___
 
 ## Usage <a id="usage"></a>
-To run the program, you will need to create a folder that contains all the .fasta files that you need. Sample FASTA files can be accessed at https://github.com/m-makarious/ReciprocalBLAST/tree/master/sample%20files. Once you have the folder, open a terminal window and try to run the python script.
-The program will then prompt the user:
 
->“Enter the path for the folder that have all the .fasta files:” 
+The `reciblast` folder have some default folders that can be used if desired, and these are the defaults that pop up in the configurations on the menu.
 
-To enter the path, you can simply drag the folder to the terminal
+However, if you would like to change the paths of the inputs/outputs accordingly, pick the menu item `[3]` and choose what needs to be changed.
 
->“Enter the database type (nucl or prot): “
-
-If your database type is nucleotide type “nucl” and if your database type is protein type “prot”
-
->“Enter the output folder:” 
-
-You can simply drag the output folder to the terminal
-
->“Where would you like the .csv BLAST results?:” 
-
-You can also drag the folder of the results to the terminal
-
-Once the database is created, the program will begin to blast each .fasta file against the database.
+Sample FASTA files can be found at:
 ___
 
-## Output File <a id="output"></a>
-The program will now go through each of those .fasta files and generate a local database for each of them. Three files are created with the following extensions .nhr, .nin, .nsq. Each file is necessary for the program to run therefore, they should not be removed. 
+## Output Files <a id="output"></a>
+The program goes through each of those .fasta files and generates a local database for each of them. Three files are created with the following extensions .nhr, .nin, .nsq. Each file is necessary for the program to run therefore, they should not be removed.
 
 
 | File | Description|
 |:----:|:--:|
 | .nhr    |  This is the header file  |
 | .nin	 | This is the index file |
-| .nsq	 | This is the sequence file|
+| .nsq | This is the sequence file|
           
 
-BLAST is then performed based on the designation of ‘nucl’ and ‘prot’. Each individual FASTA is BLAST-ed against each individual Database as required in reciprocal BLAST. After looping through the FASTA files and databases, a ‘comma’ Delimited output will be produced for the purpose of parsing. This will be in “.txt” format. Comma delimited aids parsing as it is a simpler output as well as for future output in “.csv”.
+A BLAST is then performed based on the designation of ‘nucl’ and ‘prot’. Each individual FASTA is BLAST-ed against each individual Database as required in reciprocal BLAST. After looping through the FASTA files and databases, a Comma-Delimited output will be produced with the comparisons. This will be in “.txt” format, and is used to make the .csv files that contain the bit scores.
