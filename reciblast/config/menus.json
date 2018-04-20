@@ -1,0 +1,101 @@
+{
+    "main":
+    {
+        "title": "RECIPROCAL BLAST BEST HIT PROGRAM",
+        "additional_lines":
+        [
+             "                                                   ",
+            "Current configuaration properties: ",
+            "                                                   ",
+            "   FASTA input directory              : $$FASTAIN$$",
+            "   BLAST Databases output directory   : $$DBOUT$$",
+            "   BLAST comparison output directory  : $$COMPOUT$$",
+            "   Database type (nucl or prot)       : $$DBTYPE$$",
+            "   Parsing input directory            : $$PARSEIN$$",
+            "   Parsing output directory           : $$PARSEOUT$$",
+            "                                                   ",
+            "$$STATUSMESSAGE$$",
+            "$$ERRORMESSAGE$$"
+        ],
+        "options":
+        [
+            "Generate Databases and BLAST all",
+            "Parse BLAST Outputs to a .csv",
+            "Change configuration",
+            "Exit"
+        ],
+        "commands":
+        [
+            [
+                "clear()",
+                "db_gen.generate(config_params['vals']['$$FASTAIN$$'], config_params['vals']['$$DBOUT$$'], config_params['vals']['$$COMPOUT$$'], config_params['vals']['$$DBTYPE$$'])",
+                "config_params['vals']['$$STATUSMESSAGE$$']='THE DATABASES AND COMPARISONS HAVE BEEN GENERATED!'",
+                "disp_menu('main')"
+            ],
+            [
+                "clear()",
+                "err_stat = blast_parser.parse(config_params['vals']['$$PARSEIN$$'], config_params['vals']['$$PARSEOUT$$'])",
+                "if err_stat != None:",
+                "\tconfig_params['vals']['$$ERRORMESSAGE$$'] = err_stat",
+                "config_params['vals']['$$STATUSMESSAGE$$']='THE PARSING OF THE BLAST OUTPUTS TO A .CSV IS COMPLETE!'",
+                "disp_menu('main')"
+            ],
+            [
+                "disp_menu('config')"
+            ],
+            [
+                "sys.exit()"
+            ]
+        ]
+    },
+    "config":
+    {
+        "title": "CONFIGURATION EDITING",
+        "additional_lines":
+        [
+            "Current configuration properties: ",
+            "                                                   ",
+            "   FASTA input directory              : $$FASTAIN$$",
+            "   BLAST Databases output directory   : $$DBOUT$$",
+            "   BLAST comparison output directory  : $$COMPOUT$$",
+            "   Database type (nucl or prot)       : $$DBTYPE$$",
+            "   Parsing input directory            : $$PARSEIN$$",
+            "   Parsing output directory           : $$PARSEOUT$$"
+        ],
+        "options":
+        [
+            "Change BLAST+ FASTA input directory",
+            "Change BLAST+ DB output directory",
+            "Change BLAST+ comparison output directory",
+            "Change BLAST+ database type",
+            "Change Parsing input directory",
+            "Change Parsing output directory",
+            "<< BACK"
+        ],
+        "commands":
+        [
+            [
+                "change_config('$$FASTAIN$$')"
+            ],
+            [
+                "change_config('$$DBOUT$$')"
+            ],
+            [
+                "change_config('$$COMPOUT$$')"
+            ],
+            [
+                "change_config('$$DBTYPE$$')"
+            ],
+            [
+                "change_config('$$PARSEIN$$')"
+            ],
+            [
+                "change_config('$$PARSEOUT$$')"
+            ],
+            [
+                "config_params['vals']['$$STATUSMESSAGE$$']=''",
+                "disp_menu('main')"
+            ]
+        ]
+    }
+}

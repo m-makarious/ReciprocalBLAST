@@ -1,0 +1,67 @@
+{
+    "main":
+    {
+        "title": "RECIPROCAL BLAST BEST HIT PROGRAM",
+        "additional_lines":
+        [
+            "Current configuration properties: ",
+            "                                                   ",
+            "   FASTA input directory              : $$FASTAIN$$",
+            "   BLAST Databases output directory   : $$DBOUT$$",
+            "   BLAST comparison output directory  : $$COMPOUT$$",
+            "   Database type (nucl or prot)       : $$DBTYPE$$",
+            "   Parsing input directory            : $$PARSEIN$$",
+            "   Parsing output directory           : $$PARSEOUT$$",
+            "$$STATUSMESSAGE$$"
+        ],
+        "options":
+        [
+            "Generate Databases and BLAST all",
+            "Parse BLAST Outputs",
+            "Change configuration",
+            "Exit"
+        ],
+        "commands":
+        [
+            "clear()\ndb_gen.generate(config_params['vals']['$$FASTAIN$$'], config_params['vals']['$$DBOUT$$'], config_params['vals']['$$COMPOUT$$'], config_params['vals']['$$DBTYPE$$'])\nconfig_params['vals']['$$STATUSMESSAGE$$']='DATABASE GENERATION COMPLETE'\ndisp_menu('main')",
+            "clear()\nblast_parser.parse(config_params['vals']['$$PARSEIN$$'], config_params['vals']['$$PARSEOUT$$'])\nconfig_params['vals']['$$STATUSMESSAGE$$']='BLAST PARSING COMPLETE'\ndisp_menu('main')",
+            "disp_menu('config')",
+            "sys.exit()"
+        ]
+    },
+    "config":
+    {
+        "title": "CONFIGURATION EDITING",
+        "additional_lines":
+        [
+            "Current configuration properties: ",
+            "                                                   ",
+            "   FASTA input directory              : $$FASTAIN$$",
+            "   BLAST Databases output directory   : $$DBOUT$$",
+            "   BLAST comparison output directory  : $$COMPOUT$$",
+            "   Database type (nucl or prot)       : $$DBTYPE$$",
+            "   Parsing input directory            : $$PARSEIN$$",
+            "   Parsing output directory           : $$PARSEOUT$$"
+        ],
+        "options":
+        [
+            "Change the FASTA input directory",
+            "Change the BLAST Databases output directory",
+            "Change the BLAST comparison output directory",
+            "Change the database type (nucl or prot)",
+            "Change the Parsing input directory",
+            "Change the Parsing output directory",
+            "<< BACK"
+        ],
+        "commands":
+        [
+            "change_config('$$FASTAIN$$')",
+            "change_config('$$DBOUT$$')",
+            "change_config('$$COMPOUT$$')",
+            "change_config('$$DBTYPE$$')",
+            "change_config('$$PARSEIN$$')",
+            "change_config('$$PARSEOUT$$')",
+            "config_params['vals']['$$STATUSMESSAGE$$']=''\ndisp_menu('main')"
+        ]
+    }
+}

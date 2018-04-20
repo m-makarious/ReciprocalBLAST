@@ -1,0 +1,116 @@
+# Reading in all the FASTAs
+
+# Import necessary packages 
+import sys
+import os
+
+# Inputs from the user (from a terminal window they can drag and drop to the folders)
+
+inputFolder = input("Enter the path for the folder that have all the .fasta files: ").rstrip()
+database_type = input("Enter the database type (nucl or prot): ").rstrip()
+outputFolder = input("Enter the output folder: ").rstrip()
+outputResults = input("Where would you like the .csv BLAST results?: ").rstrip()
+
+# Progress Bars
+# These progress bars (kinda) work
+
+# To track the progress of each DB made per fasta so the user can follow along
+def progress_Generating_DB(fasta):
+  sys.stdout.flush()
+  out = "A database has been generated from %s" % fasta
+  backspace = '\b' * 1000           
+
+  print (backspace)
+  sys.stdout.write(out)
+  sys.stderr = os.devnull # Errors that don't break the code will be supressed from showing in the console
+  sys.stdout.flush() # This "flushes" the terminal screen so all the output from os.system isn't clogging up the screen
+
+
+# To track the progress of each FASTA being BLAST-ed to a DB so the user can follow along
+def progress_BLAST(fasta, database):
+  sys.stdout.flush()
+
+  out = fasta + " has been BLAST-ed against " + database
+  backspace = '\b' * 1000            
+  
+  print (backspace)
+  sys.stderr = os.devnull
+  sys.stdout.write(out)
+
+
+# Go through the folders and subfolders
+def list_files(dir):                                                                                                 
+   r = []                                                                                                            
+   subdirs = [x[0] for x in os.walk(dir)]                                                                            
+   for subdir in subdirs:                                                                                            
+       files = os.walk(subdir).__next__()[2]                                                                            
+       if (len(files) > 0):                                                                                          
+           for file in files:                                                                                        
+               r.append(subdir + "/" + file)                                                                        
+   return r
+
+# Run the list_files function and return as list_fastas
+list_fastas = list_files(inputFolder)
+
+# Example commands:
+# Input folder: /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl
+# Output folder: /Users/mmakarious/Desktop/COMPBIO/ReciprocalBLAST/FASTAs_Nucl_db
+
+# Loop through the list of fastas and generate the databases depending on user inputs
+for i in list_fastas:
+    head, tail = os.path.split(i)
+    # If example input file is EcoliK12.fasta, then output should be /whatever/desired/path/EcoliK12_db
+    command = "makeblastdb -in " + i + " -dbtype " + database_type + " -out " + outputFolder + "/"+tail[:-6]+"_db"
+    progress_Generating_DB(tail)
+    sys.stdout.flush()
+    sys.stderr = os.devnull
+    os.system(command)
+    # print(command)
+
+# Go through folders and subfolders for all databases 
+def list_databases(dir):
+   s = []                                                                                                            
+   subdirs = [x[0] for x in os.walk(dir)]                                                                            
+   for subdir in subdirs:                                                                                            
+       files = os.walk(subdir).__next__()[2]                                                                            
+       if (len(files) > 0):                                                                                          
+           for file in files:                                                                                        
+               s.append(subdir + "/" + file)                                                                        
+   return s
+
+# Run the list_databases function and return as list_dbs
+list_dbs = list_databases(outputFolder)
+
+# This takes the database_type raw input and reduces it to "n" or "p" to run the BLAST depending on if the FASTAs and dbs are nucl or prot
+blast_variable = database_type[0]
+
+# Loop through the input FASTAs and all existing databases one by one and generate a .txt file that saves the output
+# .txt files will be saved as FASTA_vs_DatabaseName.txt
+for i in list_fastas:
+  FASTA_head, FASTA_tail = os.path.split(i)
+  for j in list_dbs:
+    db_head, db_tail = os.path.split(j)
+    if FASTA_tail[:-6] != db_tail[:-7]:
+      blast_results = "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -evalue 0.1" + " -outfmt 10" + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
+      #blast_results =  "blast" + blast_variable + " -query " + i + " -db " + j[:-4] + " -out " + outputResults + "/" + FASTA_tail[:-6]+ "_vs_" + db_tail[:-4] + ".txt"
+      progress_BLAST(FASTA_tail[:-6], db_tail[:-4])
+      sys.stdout.flush()
+      sys.stderr = os.devnull
+      os.system(blast_results)
+
+    # print(blast_results)
+
+# MM Notes: 
+# Need to split the database_type to the first letter and run "blast"+letter+" -query" : Done
+# Need to save the .txt as fasta name vs db name : Done
+# Need to loop through dbs : Done 
+# Check to see if FASTA name = DB name and do NOT run that loop (additional step) : Done
+# ^^ This will be some sort of if statement
+# Need to clean-up FASTA files before they are made into databases (remove commas and spaces)(Use BioPython?)
+# Output the files as .csv files (not .txt) : Done
+# Output the files with an e-value of 0.1 : Done 
+# Test out Compare_BLAST_Test.py
+# Rewrite if it works!
+
+
+
