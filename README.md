@@ -12,7 +12,7 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 
 ---
 ## Table of Contents
-* [Video](#video)
+* [Visualization](#visualization)
 * [Background](#background)
 * [Overview](#overview)
 * [Getting Started](#gettingstarted)
@@ -23,8 +23,11 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 * [Output](#output)
 
 
-## Video
-This is a link to a video walkthrough with the code and sample data found on this repository
+## Visualization
+######  Here is a graphical depiction of how the program works:
+[Graphical Depiction](https://postimg.cc/image/4jxqfv3a5/)
+
+###### This is a link to a video walkthrough with the code and sample data found on this repository
 
 [Video Walkthrough](https://streamable.com/1v1s2 "Video Walkthrough")
 
