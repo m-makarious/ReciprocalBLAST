@@ -24,9 +24,9 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 
 
 ## Video
-This video is a walkthrough with the code and sample data found on this repository
+This is a link to a video walkthrough with the code and sample data found on this repository
 
-[![Walkthrough](https://imgur.com/a/gy8X6PH.png)](https://streamable.com/1v1s2 "Video Walkthrough")
+[Video Walkthrough](https://streamable.com/1v1s2 "Video Walkthrough")
 
 ---
 
