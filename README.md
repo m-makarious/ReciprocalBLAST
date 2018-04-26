@@ -26,7 +26,7 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 ## Video
 This video is a walkthrough with the code and sample data found on this repository
 
-<div style="width:100%;height:0px;position:relative;padding-bottom:62.500%;"><iframe src="https://streamable.com/s/1v1s2/vpunz" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+[![alt text](https://ibb.co/iBb9Tc)](https://streamable.com/1v1s2 "Video Walkthrough")
 
 ---
 
