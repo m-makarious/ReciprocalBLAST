@@ -1,0 +1,31 @@
+{
+    "vals":
+    {
+        "$$FASTAIN$$"       : "./fasta_in",
+        "$$DBOUT$$"         : "./db_out",
+        "$$COMPOUT$$"       : "./comparisons",
+        "$$DBTYPE$$"        : "nucl",
+        "$$PARSEIN$$"       : "./comparisons",
+        "$$PARSEOUT$$"      : "./csv_out",
+        "$$STATUSMESSAGE$$" : "",
+        "$$ERRORMESSAGE$$"  : ""
+    },
+    "config_strs":
+    {
+        "$$FASTAIN$$"       : "FASTA input directory",
+        "$$DBOUT$$"         : "BLAST Databases output directory",
+        "$$COMPOUT$$"       : "BLAST comparison output directory",
+        "$$DBTYPE$$"        : "Database type (nucl or prot)",
+        "$$PARSEIN$$"       : "Parsing input directory",
+        "$$PARSEOUT$$"      : "Parsing output directory"
+    },
+    "strings":
+    {
+        "$$FASTAIN$$"       : "FASTA input directory",
+        "$$DBOUT$$"         : "BLAST Databases output directory",
+        "$$COMPOUT$$"       : "BLAST comparison output directory",
+        "$$DBTYPE$$"        : "Database type (nucl or prot)",
+        "$$PARSEIN$$"       : "Parsing input directory",
+        "$$PARSEOUT$$"      : "Parsing output directory"
+    }
+}
