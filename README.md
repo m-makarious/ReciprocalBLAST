@@ -1,5 +1,5 @@
 # **ReciprocalBLAST**
----
+
 ##### Created by:
 Fahed al Rafati, Mary B. Makarious, Ariane Quenum, Anthony Volchek
 ##### Loyola Univerisity Chicago: Department of Biology and Computer Science
@@ -12,6 +12,8 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 
 ---
 ## Table of Contents
+* [Video](#video)
+* [Background](#background)
 * [Overview](#overview)
 * [Getting Started](#gettingstarted)
 * [Hardware Requirements](#hardware)
@@ -19,6 +21,14 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 * [Input](#input)
 * [Usage](#usage)
 * [Output](#output)
+
+
+## Video
+This video is a walkthrough with the code and sample data found on this repository
+
+<div style="width:100%;height:0px;position:relative;padding-bottom:62.500%;"><iframe src="https://streamable.com/s/1v1s2/vpunz" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+
+---
 
 ## Background
 - Automated tool to identify homologs (orthologs and paralogs) between genomes
@@ -44,6 +54,8 @@ To use, you will need to
 `cd path/to/the/reciblast/folder`
 and run the program by typing
 `python py_blast.py`
+
+There is sample data in the default `fasta_in` subfolder in the `reciblast`  folder
 ___
 
 ## Hardware Requirements <a id="hardware"></a>
