@@ -25,7 +25,7 @@ Computational Biology | Spring 2018 | Dr. Heather E. Wheeler
 
 ## Visualization
 ######  Here is a graphical depiction of how the program works:
-[Graphical Depiction](https://postimg.cc/image/4jxqfv3a5/)
+[![Graphical Depiction.png](https://s14.postimg.cc/4jxqfv3a9/Screen_Shot_2018-04-25_at_9.34.32_PM.png)](https://postimg.cc/image/4jxqfv3a5/)
 
 ###### This is a link to a video walkthrough with the code and sample data found on this repository
 
